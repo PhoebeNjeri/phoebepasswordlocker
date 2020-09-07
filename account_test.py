@@ -81,7 +81,23 @@ class testUser(unittest.TestCase):
         self.assertEqual(self.new_account.somedia,"Github")
         self.assertEqual(self.new_account.username,"PhoebeNjeri")
         self.assertEqual(self.new_account.accpassword,"gichuhi4")
-        
+        def test_save_account(self):
+            '''
+            test_save_multiple_account to check if we can save multiple account
+            objects to our account_list
+            '''
+            self.new_account.save_account()
+            codewars= Account("Codewars","Phybz","user11") 
+            codewars.save_account()
+            self.assertEqual(len(Account.account_list),2)
+
+
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Account.account_list = []
+            User.user_list=[]
 
 
 
