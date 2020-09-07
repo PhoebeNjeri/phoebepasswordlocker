@@ -64,6 +64,7 @@ class testUser(unittest.TestCase):
         return current_user
 
         self.assertEqual(current_user,Account.check_user(user2.password,user2.lockname))
+        
 
 
  
