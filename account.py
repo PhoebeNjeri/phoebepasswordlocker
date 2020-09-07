@@ -85,3 +85,28 @@ def save_account(self):
             # if account.somedia == somedia
             user_account_list.append(account)
         return user_account_list
+         def delete_account(self):
+
+        '''
+        delete_account method deletes a saved account from the account_list
+        '''
+
+        Account.account_list.remove(self)
+
+    @classmethod
+    def find_by_somedia(cls, somedia):
+        '''
+		Method that takes in a social media's name and returns an account that matches that social media's name.
+		'''
+        for account in cls.account_list:
+            if account.somedia == somedia:
+                return account
+
+    @classmethod
+    def copy_account(cls,somedia):
+        '''
+		Class method that copies an account's info after the account's social media's name is entered
+        '''
+        find_account = Account.find_by_somedia(somedia)
+        return pyperclip.copy(find_account.accpassword)
+
