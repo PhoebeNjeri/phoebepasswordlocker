@@ -98,6 +98,66 @@ class testUser(unittest.TestCase):
             '''
             Account.account_list = []
             User.user_list=[]
+             def test_display_accounts(self):
+        '''
+        method that returns a list of all accounts saved
+        '''
+        self.new_account.save_account()
+        codewars = Account('Codewars', 'phybz','user')
+        codewars.save_account()
+        gmail= Account('Gmail','Phoebegichuhi4','Phoebe Njeri4')
+        gmail.save_account()
+        self.assertEqual(len(Account.display_accounts(codewars.somedia)),3)
+
+    def test_find_by_somedia(self):
+        '''
+		Test to check if the find_by_somedia method returns the correct account
+		'''
+        self.new_account.save_account()
+        codewars = Account('Codewars','phybz','user')
+        codewars.save_account()
+        account_exists = Account.find_by_somedia('Codewars')
+        self.assertEqual(account_exists,codewars)
+
+
+
+    def test_delete_account(self):
+            '''
+            test_delete_account to test if we can remove an account from our account list
+            '''
+            self.new_account.save_account()
+            test_account = Account("Codewars","phybz","user")
+            test_account.save_account()
+
+            self.new_account.delete_account()
+            self.assertEqual(len(Account.account_list),1)
+
+
+    def test_copy_account(self):
+        '''
+		test to check if the copy an account method copies the correct account
+		'''
+        self.new_account.save_account()
+        codewars= Account('Codewars','phybz,'user')
+        codewars.save_account()
+        find_account = None
+
+        for account in Account.user_account_list:
+            find_account=Account.find_by_somedia(account.somedia)
+            return pyperclip.copy(find_account.accpassword)
+
+        Account.copy_account(self.new_account.somedia)
+        self.assertEqual('jojopass',pyperclip.paste())
+        print(pyperclip.paste())
+
+    
+
+    
+
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 
