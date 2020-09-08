@@ -1,6 +1,7 @@
 import string
 import pyperclip
 import random
+
 class User:
     """
     Class that generates new instances of user's information
@@ -14,13 +15,13 @@ class User:
         self.password = password
 
     def save_user(self):
-
         '''
         save_user method saves user's information objects into user_list
         '''
 
         User.user_list.append(self)
-        def delete_user(self):
+    
+    def delete_user(self):
         '''
         function to   delete user instance
         '''
@@ -28,21 +29,17 @@ class User:
 
 
 class Account:
-
     """
     Class that generates new instances of user's accounts
     """
     
     account_list =[]
     user_account_list=[]
-class Account:
 
-    """
-    Class that generates new instances of user's accounts
-    """
-    
-    account_list =[]
-    user_account_list=[]
+    def __init__(self,somedia,username,accpassword):
+        self.somedia = somedia
+        self.username = username
+        self.accpassword = accpassword
 
     @classmethod
     def check_user(cls,lockname,password):
@@ -54,14 +51,8 @@ class Account:
             if(user.lockname == lockname and password == password):
                 current_user = user.lockname
         return current_user
-    
-    def __init__(self,somedia,username,accpassword):
 
-        self.somedia = somedia
-        self.username = username
-        self.accpassword = accpassword
-def save_account(self):
-
+    def save_account(self):
         '''
         save_account method saves account objects into account_list
         '''
@@ -85,8 +76,8 @@ def save_account(self):
             # if account.somedia == somedia
             user_account_list.append(account)
         return user_account_list
-         def delete_account(self):
 
+    def delete_account(self):
         '''
         delete_account method deletes a saved account from the account_list
         '''
